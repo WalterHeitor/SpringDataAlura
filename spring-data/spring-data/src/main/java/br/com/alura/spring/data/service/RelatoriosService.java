@@ -14,7 +14,7 @@ public class RelatoriosService {
 
     private FuncionarioRepositoryCrud funcionarioRepositoryCrud;
 
-    
+
 
     public RelatoriosService(FuncionarioRepositoryCrud funcionarioRepositoryCrud) {
         this.funcionarioRepositoryCrud = funcionarioRepositoryCrud;
