@@ -19,14 +19,14 @@ public class CrudCargoService {
 
     public void inicial(Scanner scanner){
         while (system){
-            System.out.println("------------------------------------");
-            System.out.println("Qual ação de cargo deseja executar?");
-            System.out.println(" 0 - Sair ");
-            System.out.println(" 1 - Salvar ");
-            System.out.println(" 2 - Atualizar ");
-            System.out.println(" 3 - Visualizar ");
-            System.out.println(" 4 - Deletar ");
-            System.out.println("------------------------------------");
+            System.out.println("--------------------------------------");
+            System.out.println("| Qual ação de cargo deseja executar? |");
+            System.out.println("|          0 - Sair                   |");
+            System.out.println("|          1 - Salvar                 |");
+            System.out.println("|          2 - Atualizar              |");
+            System.out.println("|          3 - Visualizar             |");
+            System.out.println("|          4 - Deletar                |");
+            System.out.println("--------------------------------------");
             int action = scanner.nextInt();
             switch (action){
                 case 1:
