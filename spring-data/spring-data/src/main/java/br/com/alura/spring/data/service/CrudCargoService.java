@@ -48,14 +48,13 @@ public class CrudCargoService {
 
             }
         }
-        salvar(scanner);
     }
 
 
 
     private void salvar(Scanner scanner){
         System.out.println("Descricao do Cargo:");
-        String descricao = scanner.next();
+        String descricao = scanner.nextLine();
         Cargo cargo = new Cargo();
         cargo.setDescricao(descricao);
         repositoryCrud.save(cargo);
@@ -65,7 +64,7 @@ public class CrudCargoService {
         System.out.println("Informe Id:");
         int id = scanner.nextInt();
         System.out.println("Descrição dp Cargo");
-        String descricao = scanner.next();
+        String descricao = scanner.nextLine();
         Cargo cargo = new Cargo();
         cargo.setId(id);
         cargo.setDescricao(descricao);
