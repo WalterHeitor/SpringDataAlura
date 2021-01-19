@@ -30,7 +30,7 @@ public class CrudFuncionarioService {
 
     public void inicial(Scanner scanner) {
         while(system) {
-            System.out.println("Qual acao de cargo deseja executar");
+            System.out.println("Qual acao de Funcionario deseja executar");
             System.out.println("0 - Sair");
             System.out.println("1 - Salvar");
             System.out.println("2 - Atualizar");
@@ -63,10 +63,10 @@ public class CrudFuncionarioService {
 
     private void salvar(Scanner scanner) {
         System.out.println("Digite o nome");
-        String nome = scanner.next();
+        String nome = scanner.nextLine();
 
         System.out.println("Digite o cpf");
-        String cpf = scanner.next();
+        String cpf = scanner.nextLine();
 
         System.out.println("Digite o salario");
         Double salario = scanner.nextDouble();
