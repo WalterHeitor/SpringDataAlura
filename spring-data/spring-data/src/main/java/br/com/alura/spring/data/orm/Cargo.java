@@ -1,9 +1,7 @@
 package br.com.alura.spring.data.orm;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Cargo {
@@ -11,6 +9,9 @@ public class Cargo {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String descricao;
+	@OneToMany(mappedBy = "cargo")
+	private List<Funcionario> funcionarios;
+
 	public int getId() {
 		return id;
 	}
@@ -23,6 +24,9 @@ public class Cargo {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
-	
 
+	@Override
+	public String toString() {
+		return "Cargo{" +" id= " + id +	" , descricao=' " + descricao + '\'' + '}';
+	}
 }
