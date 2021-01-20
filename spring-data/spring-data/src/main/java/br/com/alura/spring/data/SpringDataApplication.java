@@ -1,9 +1,6 @@
 package br.com.alura.spring.data;
 
-import br.com.alura.spring.data.service.CrudCargoService;
-import br.com.alura.spring.data.service.CrudFuncionarioService;
-import br.com.alura.spring.data.service.CrudUnidadeTrabalhoService;
-import br.com.alura.spring.data.service.RelatoriosService;
+import br.com.alura.spring.data.service.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -23,12 +20,14 @@ public class SpringDataApplication implements CommandLineRunner {
 	private final CrudFuncionarioService funcionarioService;
 	private final CrudUnidadeTrabalhoService unidadeTrabalhoService;
 	private final RelatoriosService relatoriosService;
+	private final RelatorioFuncionarioDinamico relatorioFuncionarioDinamico;
 
-	public SpringDataApplication(CrudCargoService crudCargoService, CrudFuncionarioService funcionarioService, CrudUnidadeTrabalhoService unidadeTrabalhoService, RelatoriosService relatoriosService) {
+	public SpringDataApplication(CrudCargoService crudCargoService, CrudFuncionarioService funcionarioService, CrudUnidadeTrabalhoService unidadeTrabalhoService, RelatoriosService relatoriosService, RelatorioFuncionarioDinamico relatorioFuncionarioDinamico) {
 		this.crudCargoService = crudCargoService;
 		this.funcionarioService = funcionarioService;
 		this.unidadeTrabalhoService = unidadeTrabalhoService;
 		this.relatoriosService = relatoriosService;
+		this.relatorioFuncionarioDinamico = relatorioFuncionarioDinamico;
 	}
 
 	@Override
@@ -37,13 +36,15 @@ public class SpringDataApplication implements CommandLineRunner {
 		Scanner scanner = new Scanner(System.in);
 
 		while (system){
-			System.out.println("--------------------------------");
-			System.out.println("| Qual açao você quer executar  |");
-			System.out.println("| 		0 - Sair 				|");
-			System.out.println("| 		1 - Funcionário: 		|");
-			System.out.println("| 		2 - Cargo: 				|");
-			System.out.println("| 		3 - Unidade: 			|");
-			System.out.println("--------------------------------");
+			System.out.println("---------------------------------");
+			System.out.println("| Qual açao você quer executar   |");
+			System.out.println("| 		0 - Sair 				 |");
+			System.out.println("| 		1 - Funcionário: 		 |");
+			System.out.println("| 		2 - Cargo: 			  	 |");
+			System.out.println("| 		3 - Unidade: 			 |");
+			System.out.println("| 		4 - Relatorios:			 |");
+			System.out.println("| 		5 - Relatorios dinamico: |");
+			System.out.println("---------------------------------");
 			Integer function = scanner.nextInt();
 
 			switch (function) {
@@ -60,6 +61,8 @@ public class SpringDataApplication implements CommandLineRunner {
 				case 4:
 					relatoriosService.inicial(scanner);
 					break;
+				case 5:
+					relatorioFuncionarioDinamico.inicial(scanner);
 				default:
 					System.out.println("Finalizando");
 					system = false;
