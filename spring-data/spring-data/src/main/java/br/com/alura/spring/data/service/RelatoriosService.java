@@ -1,6 +1,7 @@
 package br.com.alura.spring.data.service;
 
 import br.com.alura.spring.data.orm.Funcionario;
+import br.com.alura.spring.data.orm.FuncionarioProjecao;
 import br.com.alura.spring.data.repository.FuncionarioRepositoryCrud;
 import org.springframework.format.datetime.DateFormatter;
 import org.springframework.stereotype.Service;
@@ -78,5 +79,12 @@ public class RelatoriosService {
         LocalDateTime localDateTime = LocalDateTime.parse(dataFuncionario, formatter);
         List<Funcionario>list = funcionarioRepositoryCrud.findDdataContracaoMaior(localDateTime);
         list.forEach(System.out::println);
+    }
+
+    private void pesquisarFuncionarioSalario(){
+        List<FuncionarioProjecao> list = funcionarioRepositoryCrud.findFuncionarioSalario();
+        list.forEach(f -> System.out.println("Funcionario id "+f.getId()
+                +"| Funcionario nome "+f.getNome()
+                +"| Funcionario salario "+f.getSalario()));
     }
 }
